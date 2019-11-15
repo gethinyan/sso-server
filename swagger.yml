@@ -1,0 +1,239 @@
+basePath: /v1
+definitions:
+  SignInRequestBody:
+    description: SignInRequestBody 用户登录参数
+    properties:
+      email:
+        description: 邮箱地址
+        type: string
+        x-go-name: Email
+      password:
+        description: 密码
+        type: string
+        x-go-name: Password
+    required:
+    - email
+    - password
+    type: object
+    x-go-package: github.com/gethinyan/sso/api/v1
+  UserRequestBody:
+    description: UserRequestBody 用户请求参数
+    properties:
+      address:
+        description: 地址
+        type: string
+        x-go-name: Address
+      avatar_url:
+        description: 头像地址
+        type: string
+        x-go-name: AvatarURL
+      birth:
+        description: 生日
+        format: date-time
+        type: string
+        x-go-name: Birth
+      code:
+        description: 验证码（注册时必填）
+        format: int64
+        type: integer
+        x-go-name: Code
+      email:
+        description: 邮箱地址
+        type: string
+        x-go-name: Email
+      gender:
+        description: 性别（0：女；1：男）
+        format: int8
+        type: integer
+        x-go-name: Gender
+      password:
+        description: 密码
+        type: string
+        x-go-name: Password
+      phone:
+        description: 手机号
+        type: string
+        x-go-name: Phone
+      user_name:
+        description: 用户名
+        type: string
+        x-go-name: UserName
+    required:
+    - phone
+    - email
+    - user_name
+    - password
+    - gender
+    type: object
+    x-go-package: github.com/gethinyan/sso/models
+  UserResponseBody:
+    description: UserResponseBody 用户响应参数
+    properties:
+      address:
+        description: 地址
+        type: string
+        x-go-name: Address
+      avatar_url:
+        description: 头像地址
+        type: string
+        x-go-name: AvatarURL
+      birth:
+        description: 生日
+        format: date-time
+        type: string
+        x-go-name: Birth
+      email:
+        description: 邮箱地址
+        type: string
+        x-go-name: Email
+      gender:
+        description: 性别（0：女；1：男）
+        format: int8
+        type: integer
+        x-go-name: Gender
+      id:
+        description: 用户 ID
+        format: uint64
+        type: integer
+        x-go-name: ID
+      phone:
+        description: 手机号
+        type: string
+        x-go-name: Phone
+      user_name:
+        description: 用户名
+        type: string
+        x-go-name: UserName
+    type: object
+    x-go-package: github.com/gethinyan/sso/models
+host: localhost:9090
+info:
+  contact:
+    email: gethin.yan@gmail.com
+    name: gethin
+    url: http://notes.gethin.cn
+  description: Sso 接口文档
+  title: API.
+  version: 0.0.1
+paths:
+  /sendEmail:
+    get:
+      description: 发送邮件
+      operationId: sendEmailRequest
+      parameters:
+      - description: 邮箱地址
+        in: query
+        name: email
+        required: true
+        type: string
+        x-go-name: Email
+      - description: 用户名
+        in: query
+        name: user_name
+        type: string
+        x-go-name: UserName
+      responses:
+        "200":
+          $ref: '#/responses/SignResponse'
+      schemes:
+      - http
+      - https
+  /signIn:
+    post:
+      description: 用户登录
+      operationId: SignInRequest
+      parameters:
+      - in: body
+        name: Body
+        schema:
+          $ref: '#/definitions/SignInRequestBody'
+      responses:
+        "200":
+          $ref: '#/responses/SignResponse'
+      schemes:
+      - http
+      - https
+  /signUp:
+    post:
+      description: 用户注册
+      operationId: SignUpRequest
+      parameters:
+      - in: body
+        name: Body
+        schema:
+          $ref: '#/definitions/UserRequestBody'
+      responses:
+        "200":
+          $ref: '#/responses/SignResponse'
+      schemes:
+      - http
+      - https
+  /users/{id}:
+    get:
+      description: 获取用户信息
+      operationId: GetUserRequest
+      parameters:
+      - format: uint64
+        in: path
+        name: id
+        required: true
+        type: integer
+        x-go-name: ID
+      responses:
+        "200":
+          $ref: '#/responses/GetUserResponse'
+      schemes:
+      - http
+      - https
+    put:
+      description: 更新用户信息
+      operationId: UpdateUserRequest
+      parameters:
+      - in: body
+        name: Body
+        schema:
+          $ref: '#/definitions/UserRequestBody'
+      responses:
+        "200":
+          $ref: '#/responses/UpdateUserResponse'
+      schemes:
+      - http
+      - https
+responses:
+  GetUserResponse:
+    description: GetUserResponse 获取用户信息响应参数
+    schema:
+      properties:
+        data:
+          $ref: '#/definitions/UserResponseBody'
+        message:
+          description: 响应信息
+          type: string
+          x-go-name: Message
+      type: object
+  SignResponse:
+    description: SignResponse 用户注册/登录响应参数
+    schema:
+      properties:
+        data:
+          $ref: '#/definitions/UserResponseBody'
+        message:
+          description: 响应信息
+          type: string
+          x-go-name: Message
+      type: object
+  UpdateUserResponse:
+    description: UpdateUserResponse 修改用户响应参数
+    schema:
+      properties:
+        data:
+          $ref: '#/definitions/UserResponseBody'
+        message:
+          description: 响应信息
+          type: string
+          x-go-name: Message
+      type: object
+schemes:
+- http
+- https
+swagger: "2.0"
