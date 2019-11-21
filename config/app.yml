@@ -1,5 +1,5 @@
 app:
-  jwt_secret: sso
+  jwt_secret: sso-server
 
 server:
   http_port: 9090
@@ -19,8 +19,8 @@ redis:
 
 email:
   from: no-reply@gethin.cn
-  from_subject: Sso
-  subject: Sso验证码
+  from_subject: Sso-server
+  subject: Sso-server验证码
 
 code:
   min: 100000

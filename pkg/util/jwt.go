@@ -3,7 +3,7 @@ package util
 import (
 	"time"
 
-	"github.com/gethinyan/sso/pkg/setting"
+	"github.com/gethinyan/sso-server/pkg/setting"
 	"github.com/dgrijalva/jwt-go"
 )
 
@@ -38,7 +38,7 @@ func GenerateToken(id uint, email string) (string, error) {
 		GetTokenExpireTime(),
 		jwt.StandardClaims{
 			ExpiresAt: GetRefreshTokenExpireTime(),
-			Issuer:    "sso",
+			Issuer:    "sso-server",
 		},
 	}
 

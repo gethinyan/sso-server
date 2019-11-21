@@ -1,8 +1,8 @@
 package routes
 
 import (
-	apiV1 "github.com/gethinyan/sso/api/v1"
-	"github.com/gethinyan/sso/middleware/jwt"
+	apiV1 "github.com/gethinyan/sso-server/api/v1"
+	"github.com/gethinyan/sso-server/middleware/jwt"
 	"github.com/gin-gonic/gin"
 )
 

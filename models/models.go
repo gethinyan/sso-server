@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/gethinyan/sso/pkg/setting"
+	"github.com/gethinyan/sso-server/pkg/setting"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/postgres" // postgres driver
 )

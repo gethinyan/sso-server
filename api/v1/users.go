@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/gethinyan/sso/models"
-	"github.com/gethinyan/sso/pkg/util"
+	"github.com/gethinyan/sso-server/models"
+	"github.com/gethinyan/sso-server/pkg/util"
 	"github.com/gin-gonic/gin"
 )
 

@@ -4,7 +4,7 @@ import (
 	"math/rand"
 	"time"
 
-	"github.com/gethinyan/sso/pkg/setting"
+	"github.com/gethinyan/sso-server/pkg/setting"
 	"golang.org/x/crypto/bcrypt"
 )
 

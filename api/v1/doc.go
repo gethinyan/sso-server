@@ -1,6 +1,6 @@
 // Package v1 API.
 //
-// Sso 接口文档
+// Sso-server 接口文档
 //
 //      Schemes: http, https
 //      BasePath: /v1

@@ -4,10 +4,10 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/gethinyan/sso/models"
-	"github.com/gethinyan/sso/pkg/redis"
-	"github.com/gethinyan/sso/pkg/setting"
-	"github.com/gethinyan/sso/pkg/util"
+	"github.com/gethinyan/sso-server/models"
+	"github.com/gethinyan/sso-server/pkg/redis"
+	"github.com/gethinyan/sso-server/pkg/setting"
+	"github.com/gethinyan/sso-server/pkg/util"
 	"github.com/gin-gonic/gin"
 )
 

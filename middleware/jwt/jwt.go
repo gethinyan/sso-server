@@ -5,8 +5,8 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/gethinyan/sso/pkg/redis"
-	"github.com/gethinyan/sso/pkg/util"
+	"github.com/gethinyan/sso-server/pkg/redis"
+	"github.com/gethinyan/sso-server/pkg/util"
 	"github.com/gin-gonic/gin"
 )
 

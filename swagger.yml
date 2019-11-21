@@ -15,7 +15,7 @@ definitions:
     - email
     - password
     type: object
-    x-go-package: github.com/gethinyan/sso/api/v1
+    x-go-package: github.com/gethinyan/sso-server/api/v1
   UserRequestBody:
     description: UserRequestBody 用户请求参数
     properties:
@@ -65,7 +65,7 @@ definitions:
     - password
     - gender
     type: object
-    x-go-package: github.com/gethinyan/sso/models
+    x-go-package: github.com/gethinyan/sso-server/models
   UserResponseBody:
     description: UserResponseBody 用户响应参数
     properties:
@@ -105,14 +105,14 @@ definitions:
         type: string
         x-go-name: UserName
     type: object
-    x-go-package: github.com/gethinyan/sso/models
+    x-go-package: github.com/gethinyan/sso-server/models
 host: localhost:9090
 info:
   contact:
     email: gethin.yan@gmail.com
     name: gethin
     url: http://notes.gethin.cn
-  description: Sso 接口文档
+  description: Sso-server 接口文档
   title: API.
   version: 0.0.1
 paths:

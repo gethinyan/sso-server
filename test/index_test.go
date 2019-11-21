@@ -5,7 +5,7 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/gethinyan/sso/routes"
+	"github.com/gethinyan/sso-server/routes"
 	"github.com/stretchr/testify/assert"
 )
 

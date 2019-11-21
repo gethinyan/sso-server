@@ -3,10 +3,10 @@
 ## Getting Start
 
 ```bash
-$ git clone -b server https://github.com/gethinyan/sso.git
-$ cd sso
+$ git clone -b server https://github.com/gethinyan/sso-server.git
+$ cd sso-server
 $ source ./sendgrid.env
-$ go run sso.go
+$ go run sso-server.go
 # Then, visit the address http:/localhost:9090/hello.
 ```
 

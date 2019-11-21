@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/gethinyan/sso/pkg/util"
+	"github.com/gethinyan/sso-server/pkg/util"
 	"github.com/jinzhu/gorm"
 )
 

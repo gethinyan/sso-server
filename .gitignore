@@ -1,4 +1,4 @@
 go.mod
 dump.rdb
-sso
+sso-server
 sendgrid.env

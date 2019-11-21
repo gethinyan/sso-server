@@ -1,7 +1,7 @@
 package redis
 
 import (
-	"github.com/gethinyan/sso/pkg/setting"
+	"github.com/gethinyan/sso-server/pkg/setting"
 	"github.com/go-redis/redis"
 )
 
