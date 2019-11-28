@@ -117,8 +117,7 @@ func SignUp(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{"message": "生成token失败"})
 		return
 	}
-	// 设置 header Authorization
-	c.Writer.Header().Set("Authorization", "Bearer "+token)
+	c.SetCookie("jsonWebToken", token, 3600, "/", "sso.com", false, true)
 	c.JSON(http.StatusOK, user.ConvertToResponse())
 }
 
@@ -169,7 +168,6 @@ func SignIn(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{"message": "生成token失败"})
 		return
 	}
-	// 设置 header Authorization
-	c.Writer.Header().Set("Authorization", "Bearer "+token)
+	c.SetCookie("jsonWebToken", token, 3600, "/", "sso.com", false, true)
 	c.JSON(http.StatusOK, user.ConvertToResponse())
 }

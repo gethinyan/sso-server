@@ -13,10 +13,14 @@ import (
 // JWT is jwt middleware
 func JWT() gin.HandlerFunc {
 	return func(c *gin.Context) {
-		header := c.Request.Header.Get("Authorization")
-		// Parse the header to get the token part
-		var token string
-		fmt.Sscanf(header, "Bearer %s", &token)
+		token, err := c.Cookie("jsonWebToken")
+		if err != nil {
+			c.JSON(http.StatusBadRequest, gin.H{
+				"message": "StatusBadRequest",
+			})
+			c.Abort()
+			return
+		}
 		if token == "" {
 			c.JSON(http.StatusBadRequest, gin.H{
 				"message": "StatusBadRequest",
@@ -51,7 +55,7 @@ func JWT() gin.HandlerFunc {
 					"message": "StatusUnauthorized",
 				})
 			}
-			c.Writer.Header().Set("Authorization", "Bearer "+newToken)
+			c.SetCookie("jsonWebToken", newToken, 3600, "/", "sso.com", false, true)
 			// 把老 token 加入黑名单
 			redis.RedisClient.HSet("tokenblacklist", token, true)
 		}
