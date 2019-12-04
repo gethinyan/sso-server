@@ -51,7 +51,7 @@ func (t *Auth) CheckToken(ctx context.Context, args *Args, reply *Reply) error {
 		}
 		reply.NewToken = newToken
 		// 把老 token 加入黑名单
-		redis.RedisClient.HSet("tokenblacklist", args.jsonWebToken, true)
+		redis.RedisClient.HSet("tokenblacklist", args.JsonWebToken, true)
 	}
 
 	return nil
