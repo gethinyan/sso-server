@@ -169,5 +169,5 @@ func SignIn(c *gin.Context) {
 		return
 	}
 	c.SetCookie("jsonWebToken", token, 3600, "/", "sso.com", false, true)
-	c.JSON(http.StatusOK, user.ConvertToResponse())
+	c.JSON(http.StatusOK, map[string]interface{}{"statuscode": 1, "message": "登录成功", "data": user.ConvertToResponse()})
 }

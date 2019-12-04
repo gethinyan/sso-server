@@ -8,7 +8,7 @@ import (
 )
 
 var (
-	addr = flag.String("addr", "localhost:8972", "server address")
+	addr = flag.String("addr", "172.16.21.71:8972", "server address")
 )
 
 // 注册所有服务
@@ -16,6 +16,6 @@ func main() {
 	flag.Parse()
 
 	s := server.NewServer()
-	s.RegisterName("Arith", new(services.Arith), "")
+	s.RegisterName("Auth", new(services.Auth), "")
 	s.Serve("tcp", *addr)
 }
