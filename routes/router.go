@@ -19,6 +19,7 @@ func SetupRouter() *gin.Engine {
 		{
 			v1.GET("/users/:id", apiV1.GetUserInfo)
 			v1.PUT("/users/:id", apiV1.UpdateUser)
+			v1.GET("/getToken", apiV1.GetToken)
 		}
 	}
 

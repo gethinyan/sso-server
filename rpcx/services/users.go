@@ -27,6 +27,7 @@ type Auth int
 
 // CheckToken 注册函数
 func (t *Auth) CheckToken(ctx context.Context, args *Args, reply *Reply) error {
+	fmt.Println(args)
 	if args.JsonWebToken == "" {
 		return errors.New("未传入token")
 	}
