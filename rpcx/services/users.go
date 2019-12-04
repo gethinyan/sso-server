@@ -27,15 +27,15 @@ type Auth int
 
 // CheckToken 注册函数
 func (t *Auth) CheckToken(ctx context.Context, args *Args, reply *Reply) error {
-	if args.jsonWebToken == "" {
+	if args.JsonWebToken == "" {
 		return errors.New("未传入token")
 	}
 	// 判断 token 是否在黑名单里面
-	tokenExists := redis.RedisClient.HExists("tokenblacklist", args.jsonWebToken).Val()
+	tokenExists := redis.RedisClient.HExists("tokenblacklist", args.JsonWebToken).Val()
 	if tokenExists == true {
 		return errors.New("token在黑名单里")
 	}
-	user, err := util.ParseToken(args.jsonWebToken)
+	user, err := util.ParseToken(args.JsonWebToken)
 	fmt.Println(user)
 	if err != nil {
 		return err
@@ -49,7 +49,7 @@ func (t *Auth) CheckToken(ctx context.Context, args *Args, reply *Reply) error {
 		if err != nil {
 			return err
 		}
-		reply.newToken = newToken
+		reply.NewToken = newToken
 		// 把老 token 加入黑名单
 		redis.RedisClient.HSet("tokenblacklist", args.jsonWebToken, true)
 	}
