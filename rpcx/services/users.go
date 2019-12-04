@@ -12,14 +12,14 @@ import (
 
 // Args 请求参数结构
 type Args struct {
-	jsonWebToken string
+	JsonWebToken string
 }
 
 // Reply 响应参数结构
 type Reply struct {
 	ID       uint
 	Email    string
-	newToken string
+	NewToken string
 }
 
 // Auth ...
